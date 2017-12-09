@@ -1,0 +1,3 @@
+[submodule "depends"]
+	path = depends
+	url = https://github.com/kobushi/depends.git
