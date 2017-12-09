@@ -33,6 +33,38 @@ Build bitzenyd on Ubuntu 14.04
     ./configure --without-miniupnpc --without-gui --disable-tests
     make
 
+Build bitzeny* for Windows 32bit on Ubuntu (Checked on 17.04)
+-------------------------------------------------------------
+
+    sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev
+    sudo apt-get install curl git build-essential libtool autoconf pkg-config bsdmainutils
+    git clone --recursive [URL to this repository]
+    cd bitzeny/depends
+    ./buildwin32.sh
+    cd ..
+    ./autogen.sh
+    CONFIG_SITE=$PWD/depends/i686-w64-mingw32/share/config.site ./configure --prefix=$PWD/depends/i686-w64-mingw32 --enable-upnp-default LIBS=-lpthread
+    make
+    make install
+
+Then you can see .exe files in bitzeny/depends/i686-w64-mingw32/bin directory.
+
+Build bitzeny* for Windows 64bit on Ubuntu (Checked on 17.04)
+-------------------------------------------------------------
+
+    sudo apt-get install g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+    sudo apt-get install curl git build-essential libtool autoconf pkg-config bsdmainutils
+    git clone --recursive [URL to this repository]
+    cd bitzeny/depends
+    ./buildwin64.sh
+    cd ..
+    ./autogen.sh
+    CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=$PWD/depends/x86_64-w64-mingw32 --enable-upnp-default LIBS=-lpthread
+    make
+    make install
+
+Then you can see .exe files in bitzeny/depends/x86_64-w64-mingw32/bin directory.
+
 Development tips and tricks
 ---------------------------
 
